@@ -26,13 +26,14 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(
                 request -> request
-                        .antMatchers("/signUp", "/login", "h2-console/**").permitAll()
+                        .antMatchers("/signUp", "/login", "/loginForm", "h2-console/**").permitAll()
                         .anyRequest().authenticated()
 
         );
-        http.formLogin(form -> form.loginPage("/login")
+        http.formLogin(form -> form.loginPage("/loginForm")
                 .loginProcessingUrl("/login")
-                .defaultSuccessUrl("/index"));
+                .defaultSuccessUrl("/")
+        );
 
         http.headers(header -> header.frameOptions().disable());
 

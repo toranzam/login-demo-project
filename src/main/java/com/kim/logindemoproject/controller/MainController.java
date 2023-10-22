@@ -44,12 +44,8 @@ public class MainController {
         return "redirect:/loginForm";
     }
 
-    @GetMapping("/login")
+    @GetMapping("/loginForm")
     public String loginPage() {
         return "loginForm";
     }
-
-
-
-
 }
